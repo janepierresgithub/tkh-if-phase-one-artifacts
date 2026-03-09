@@ -68,7 +68,7 @@ tkh-if-phase-one-artifacts/
 Students provision their lab environment using:
 
 \`\`\`bash
-curl -s [GIST_URL] | bash
+curl -s https://gist.githubusercontent.com/janepierresgithub/5c7caec85fc26d272f43df34c8dbe4f3/raw/setup_lab_01.sh | bash
 \`\`\`
 
 The script creates the lab directory structure, sets permissions, installs required tools,
