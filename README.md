@@ -117,7 +117,7 @@ compliance (Limoncelli et al., 2016).
 | VM Platforms | VirtualBox · UTM |
 | Remote Access | VS Code Remote-SSH |
 | GitHub CLI | \`gh\` — authenticated via SSH |
-| Certifications | AWS Cloud Practitioner · ISC2 CC |
+| Certifications | AWS Cloud Practitioner |
 
 ---
 
@@ -125,7 +125,6 @@ compliance (Limoncelli et al., 2016).
 
 - [TKH Innovation Fellowship](https://theknowledgehouse.org/innovation-fellowship/)
 - [NIST NICE Framework](https://www.nist.gov/nice)
-- [ISC2 Certified in Cybersecurity](https://www.isc2.org/certifications/cc)
 - [GitHub Docs — SSH Keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 - [Conventional Commits](https://www.conventionalcommits.org/)
 
