@@ -1,0 +1,20 @@
+# discovery.txt
+# TKH Innovation Fellowship 2026 — Phase 1, Week 1, Night 1
+# Author: Jane G. Pierre (Teaching Assistant)
+# Session: P1-W1-D1 | The Shell Awakening
+# Date: 2026-03-10
+
+# Objective 1: System log file
+/var/log/syslog
+
+# Objective 2: Mission briefing in the restricted ops directory
+/opt/alpha/mission.txt
+
+# Objective 3: Intel file inside the hidden mission cache directory
+/var/tmp/.mission_cache/intel.txt
+
+# TA Notes:
+# - All three paths verified on headless Ubuntu Server VM
+# - /opt/alpha and /var/tmp/.mission_cache created by bootstrap script
+# - Use: ls -a /var/tmp   to reveal hidden directories
+# - Absolute paths always start from /
