@@ -83,4 +83,4 @@ Every artifact is committed with descriptive, conventional commit messages. The 
 ## Certifications & Credentials
 
 ![AWS](https://img.shields.io/badge/AWS-Cloud%20Practitioner-b5451b?style=flat-square&logo=amazonaws&logoColor=white)
-![TKH](https://img.shields.io/badge/TKH-Innovation%20Fellowship%20Valedictorian-4a6fa5?style=flat-square)
+
