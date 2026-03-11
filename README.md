@@ -103,7 +103,7 @@ tkh-if-phase-one-artifacts/
 ### Night 1 · Terminal Genesis
 VM orientation, headless Linux, FHS navigation, CLI fundamentals, and Git/GitHub
 setup across 70 student environments. The TA bootstrap script (`setup_lab_01_jane.sh`)
-was built independently before accessing instructor materials — it mirrors FHS
+was built independently alongside the Lead Instructor's materials. It mirrors FHS
 production directory conventions and includes a five-point environment verification
 suite to catch provisioning failures before they surface as student blockers.
 
