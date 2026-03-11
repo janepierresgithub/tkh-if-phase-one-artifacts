@@ -1,6 +1,6 @@
 # TKH Innovation Fellowship — Phase 1 Cybersecurity
 
-### Teaching Assistant Repository · Spring 2026
+### Technical Operations & Lab Infrastructure · Spring 2026
 
 ---
 
@@ -10,21 +10,45 @@
 
 ## About This Repository
 
-This repository documents Phase 1 of the TKH Innovation Fellowship Cybersecurity
-program from the perspective of the Teaching Assistant. It contains independent
-lab implementations, annotated scripts, session analysis, and reference artifacts
-produced week by week alongside the live curriculum.
+This repository documents the technical work produced during Phase 1 of the TKH
+Innovation Fellowship Cybersecurity program. It was built and maintained in the
+role of Teaching Assistant — a position that in practice functioned as embedded
+IT support, systems administration, and technical infrastructure for a cohort of
+approximately 70 students across three sessions per week.
 
-The work here serves two purposes: supporting students in the program, and building
-a personal record of how the foundational concepts of Linux security translate into
-real-world practice. Every script is commented with the security principle it
-demonstrates. Every analysis document explains not just what was built, but why
-the decisions were made.
+The work here spans environment provisioning, automation scripting, live
+troubleshooting, user support, and technical documentation. Every script is
+annotated with the security principle it demonstrates. Every analysis document
+explains not just what was built, but the reasoning behind the implementation
+decisions — the same reasoning a technician applies when diagnosing an unfamiliar
+system or writing a runbook for a team.
 
 **Program:** TKH Innovation Fellowship · [The Knowledge House](https://theknowledgehouse.org)
 **Phase:** 1 — Cybersecurity Foundations
+**Cohort Size:** ~70 students
 **Schedule:** Monday / Tuesday / Wednesday · 5:30–8:30 PM EST
 **Start Date:** March 9, 2026
+
+---
+
+## What This Role Actually Involved
+
+This was not a grading role. The day-to-day technical work included:
+
+- **Environment provisioning** — scripting and validating lab environments across
+  70 student VMs running Ubuntu Server (headless) on VirtualBox and UTM
+- **Live troubleshooting** — diagnosing SSH connection failures, Git authentication
+  errors, broken file permissions, misconfigured paths, and failed bootstrap scripts
+  in real time during sessions
+- **User support at scale** — first-line technical support for 70 users with varying
+  skill levels across macOS, Windows, and Linux environments
+- **Documentation** — writing and maintaining technical guides, session notes, and
+  reference scripts that students and future TAs could follow independently
+- **Systems validation** — running pre-session environment checks to catch
+  provisioning failures before they became classroom blockers
+- **Script development** — building independent implementations of lab environments
+  in bash and Python3, with inline annotations mapping each operation to its
+  underlying security concept
 
 ---
 
@@ -36,18 +60,17 @@ tkh-if-phase-one-artifacts/
 ├── week-01/
 │   ├── scripts/
 │   │   ├── setup_lab_01_george.sh   # Lead instructor's S01 bootstrap (reference)
-│   │   ├── setup_lab_01_jane.sh     # TA independent S01 implementation
-│   │   └── setup_lab_03_jane.sh     # TA independent S03 log generator (Python)
+│   │   ├── setup_lab_01_jane.sh     # Independent S01 implementation (TA)
+│   │   └── setup_lab_03_jane.sh     # Independent S03 log generator — Python3
 │   ├── artifacts/
-│   │   ├── discovery.txt            # S01 lab output — filesystem reconnaissance
+│   │   ├── discovery.txt            # S01 output — filesystem reconnaissance
 │   │   ├── bash_onliners.sh         # CLI reference — command patterns
-│   │   ├── harden.sh                # S02 hardening script (see also week-02)
-│   │   ├── threat_ips.txt           # S03 lab output — extracted attacker IPs
+│   │   ├── threat_ips.txt           # S03 output — extracted attacker IPs
 │   │   └── log_interrogation_pipeline.sh  # S03 documented forensic pipeline
 │   └── docs/
-│       ├── comparison_night1.md     # S01 bootstrap script analysis
+│       ├── comparison_night1.md     # S01 bootstrap analysis
 │       ├── analysis_night3.md       # S03 lab environment analysis
-│       ├── night1_ta_notes.md       # S01 TA session notes
+│       ├── night1_ta_notes.md       # S01 session notes
 │       └── NOTES.md                 # Week 01 concept reference
 │
 ├── week-02/
@@ -78,41 +101,42 @@ tkh-if-phase-one-artifacts/
 ## Week 01 — Three Sessions
 
 ### Night 1 · Terminal Genesis
-VM orientation, headless Linux, FHS navigation, CLI fundamentals, and Git/GitHub setup.
-Students provisioned their environments using the lead instructor's bootstrap script.
-The TA implementation (`setup_lab_01_jane.sh`) mirrors FHS production conventions
-and includes a five-point verification suite.
+VM orientation, headless Linux, FHS navigation, CLI fundamentals, and Git/GitHub
+setup across 70 student environments. The TA bootstrap script (`setup_lab_01_jane.sh`)
+was built independently before accessing instructor materials — it mirrors FHS
+production directory conventions and includes a five-point environment verification
+suite to catch provisioning failures before they surface as student blockers.
 
-→ See: `week-01/scripts/` · `week-01/docs/comparison_night1.md`
+→ `week-01/scripts/` · `week-01/docs/comparison_night1.md`
 
-**Lab Bootstrap (TA Reference)**
 ```bash
+# TA Reference Bootstrap
 curl -s https://gist.githubusercontent.com/janepierresgithub/5c7caec85fc26d272f43df34c8dbe4f3/raw/setup_lab_01.sh | bash
 ```
 
 ---
 
 ### Night 2 · The Keymaster
-File permissions, `chmod`, `chown`, the SUID audit, and system hardening.
-The `harden.sh` script documents each permission operation with its CIA Triad
-property and NIST NICE framework mapping inline — making the script itself
-a teaching artifact.
+File permissions, `chmod`, `chown`, SUID auditing, and baseline system hardening.
+The `harden.sh` script annotates each operation with its CIA Triad property and
+NIST NICE framework mapping — making the script self-documenting for anyone who
+needs to run or modify it without external reference.
 
-→ See: `week-02/scripts/harden.sh` · `week-02/docs/NOTES.md`
+→ `week-02/scripts/harden.sh` · `week-02/docs/NOTES.md`
 
 ---
 
 ### Night 3 · Stream Editing & Automation
-`grep`, `sed`, `awk`, pipeline construction, and log interrogation.
-Students built a forensic pipeline to extract attacker IPs from a simulated
-Apache access log under SQL injection attack. The TA implementation generates
-a 10,000-line log with full Apache Combined Log Format and five randomized
-attacker IPs shuffled throughout the noise.
+`grep`, `sed`, `awk`, pipeline construction, and log interrogation. Students built
+a forensic pipeline to extract attacker IPs from a simulated Apache access log under
+SQL injection attack. The TA log generator produces 10,000 entries in full Apache
+Combined Log Format with five randomized attacker IPs shuffled throughout — closer
+to production forensic conditions than the class script's simplified format.
 
-→ See: `week-01/scripts/setup_lab_03_jane.sh` · `week-01/artifacts/log_interrogation_pipeline.sh` · `week-01/docs/analysis_night3.md`
+→ `week-01/scripts/setup_lab_03_jane.sh` · `week-01/artifacts/log_interrogation_pipeline.sh` · `week-01/docs/analysis_night3.md`
 
-**The Pipeline**
 ```bash
+# The forensic pipeline — built live with 70 students
 grep "UNION SELECT" ~/access.log \
     | awk '{print $1}' \
     | sort | uniq \
@@ -121,30 +145,42 @@ grep "UNION SELECT" ~/access.log \
 
 ---
 
-## Core Concepts Covered — Week 01
+## Technical Environment
 
-### The CIA Triad
-Confidentiality, Integrity, and Availability form the conceptual backbone of every
-lab decision in this program. As Chapple et al. (2021) describe, these three
-principles map directly to the access control decisions practitioners make daily —
-from file permissions to firewall rules.
+| Area | Tools & Platforms |
+|---|---|
+| **Operating Systems** | Ubuntu Server (headless) · macOS · Windows |
+| **Virtualization** | VirtualBox · UTM |
+| **Remote Access** | VS Code Remote-SSH · SSH key authentication |
+| **Version Control** | Git · GitHub CLI (`gh`) · Conventional Commits |
+| **Languages** | Bash · Python3 |
+| **User Support Scale** | ~70 students per cohort |
+
+---
+
+## Core Concepts — Week 01
+
+### CIA Triad
+Confidentiality, Integrity, and Availability are the conceptual backbone of every
+decision in this program — from file permissions to firewall rules to forensic
+pipeline design. Every script in this repository maps its operations to one or more
+of these properties explicitly (Chapple et al., 2021).
 
 ### AAA Framework
-Every permission and authentication decision maps to Authentication (proving identity),
-Authorization (enforcing access rights), and Accounting (logging what happened and when).
-Git itself functions as an Accounting layer — every commit produces a cryptographic
+Authentication, Authorization, and Accounting map directly to the Linux permission
+model. Git functions as an Accounting layer — every commit produces a cryptographic
 hash that creates a tamper-evident, timestamped, attributed record of change.
 
 ### The Holy Trinity — grep / sed / awk
-Three text processing tools that together make the Linux terminal a forensic instrument:
-- `grep` — The Scalpel. Filters rows by pattern.
-- `sed` — The Laser. Mutates and replaces text on the fly.
-- `awk` — The Formatter. Extracts specific columns from structured data.
+Three tools that together make the terminal a forensic instrument:
+- `grep` — filters rows by pattern (The Scalpel)
+- `sed` — mutates and replaces text on the fly (The Laser)
+- `awk` — extracts specific columns from structured data (The Formatter)
 
 ### Principle of Least Privilege
-Every `chmod` operation in this repository reduces permissions to the minimum required
-for the resource to function correctly. This principle, formalized by Saltzer and
-Schroeder (1975), underpins every hardening decision in Week 01.
+Every `chmod` operation in this repository reduces permissions to the minimum
+required for correct function — formalized by Saltzer and Schroeder (1975) and
+applied here at the file system level.
 
 ---
 
@@ -152,23 +188,11 @@ Schroeder (1975), underpins every hardening decision in Week 01.
 
 - **Never commit secrets** — no API keys, tokens, SSH private keys, or passwords
 - Always inspect before executing: `cat script.sh` before `bash script.sh`
-- This repository uses [Conventional Commits](https://www.conventionalcommits.org/):
+- Conventional Commits in use:
   - `feat:` — new lab material or script
   - `fix:` — corrections to existing content
   - `docs:` — documentation updates
   - `sec:` — security-related changes
-
----
-
-## Environment
-
-| Tool | Notes |
-|---|---|
-| OS | Ubuntu Server (headless) |
-| VM Platforms | VirtualBox · UTM |
-| Remote Access | VS Code Remote-SSH |
-| GitHub CLI | `gh` — authenticated via SSH |
-| Languages | Bash · Python3 |
 
 ---
 
