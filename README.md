@@ -61,7 +61,8 @@ tkh-if-phase-one-artifacts/
 │   ├── scripts/
 │   │   ├── setup_lab_01_george.sh   # Lead instructor's S01 bootstrap (reference)
 │   │   ├── setup_lab_01_jane.sh     # Independent S01 implementation (TA)
-│   │   └── setup_lab_03_jane.sh     # Independent S03 log generator — Python3
+│   │   ├── setup_lab_03_jane.sh     # Independent S03 log generator — Python3
+│   │   └── harden.sh                # Night 2 — baseline Linux hardening (CIA annotated)
 │   ├── artifacts/
 │   │   ├── discovery.txt            # S01 output — filesystem reconnaissance
 │   │   ├── bash_onliners.sh         # CLI reference — command patterns
@@ -71,13 +72,12 @@ tkh-if-phase-one-artifacts/
 │       ├── comparison_night1.md     # S01 bootstrap analysis
 │       ├── analysis_night3.md       # S03 lab environment analysis
 │       ├── night1_ta_notes.md       # S01 session notes
-│       └── NOTES.md                 # Week 01 concept reference
+│       ├── NOTES.md                 # Week 01 concept reference
+│       └── NOTES_night2.md          # Night 2 — permissions, chmod, AAA mapping
 │
 ├── week-02/
-│   ├── scripts/
-│   │   └── harden.sh                # Baseline Linux hardening — CIA annotated
 │   └── docs/
-│       └── NOTES.md                 # Permissions, chmod, AAA framework mapping
+│       └── NOTES.md                 # Upcoming — access control & cryptography
 │
 ├── week-03/
 │   └── docs/
@@ -103,7 +103,7 @@ tkh-if-phase-one-artifacts/
 ### Night 1 · Terminal Genesis
 VM orientation, headless Linux, FHS navigation, CLI fundamentals, and Git/GitHub
 setup across 70 student environments. The TA bootstrap script (`setup_lab_01_jane.sh`)
-was built independently alongside the Lead Instructor's materials. It mirrors FHS
+was built independently before accessing instructor materials — it mirrors FHS
 production directory conventions and includes a five-point environment verification
 suite to catch provisioning failures before they surface as student blockers.
 
@@ -122,7 +122,7 @@ The `harden.sh` script annotates each operation with its CIA Triad property and
 NIST NICE framework mapping — making the script self-documenting for anyone who
 needs to run or modify it without external reference.
 
-→ `week-01/scripts/harden.sh` · `week-02/docs/NOTES.md`
+→ `week-01/scripts/harden.sh` · `week-01/docs/NOTES_night2.md`
 
 ---
 
