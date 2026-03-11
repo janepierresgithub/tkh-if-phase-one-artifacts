@@ -122,7 +122,7 @@ The `harden.sh` script annotates each operation with its CIA Triad property and
 NIST NICE framework mapping — making the script self-documenting for anyone who
 needs to run or modify it without external reference.
 
-→ `week-02/scripts/harden.sh` · `week-02/docs/NOTES.md`
+→ `week-01/scripts/harden.sh` · `week-02/docs/NOTES.md`
 
 ---
 
