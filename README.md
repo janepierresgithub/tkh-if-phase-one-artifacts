@@ -14,7 +14,7 @@ This repository documents the technical work produced during Phase 1 of the TKH
 Innovation Fellowship Cybersecurity program. It was built and maintained in the
 role of Teaching Assistant — a position that in practice functioned as embedded
 IT support, systems administration, and technical infrastructure for a cohort of
-approximately 70 students across three sessions per week.
+approximately 70 students across Foundations and Phase 1 cohorts.
 
 The work here spans environment provisioning, automation scripting, live
 troubleshooting, user support, and technical documentation. Every script is
@@ -25,7 +25,7 @@ system or writing a runbook for a team.
 
 **Program:** TKH Innovation Fellowship · [The Knowledge House](https://theknowledgehouse.org)
 **Phase:** 1 — Cybersecurity Foundations
-**Cohort Size:** ~70 students
+**Cohort Size:** ~70 students across Foundations & Phase 1
 **Schedule:** Monday / Tuesday / Wednesday · 5:30–8:30 PM EST
 **Start Date:** March 9, 2026
 
@@ -40,7 +40,7 @@ This was not a grading role. The day-to-day technical work included:
 - **Live troubleshooting** — diagnosing SSH connection failures, Git authentication
   errors, broken file permissions, misconfigured paths, and failed bootstrap scripts
   in real time during sessions
-- **User support at scale** — first-line technical support for 70 users with varying
+- **User support at scale** — first-line technical support for ~70 users with varying
   skill levels across macOS, Windows, and Linux environments
 - **Documentation** — writing and maintaining technical guides, session notes, and
   reference scripts that students and future TAs could follow independently
@@ -154,7 +154,7 @@ grep "UNION SELECT" ~/access.log \
 | **Remote Access** | VS Code Remote-SSH · SSH key authentication |
 | **Version Control** | Git · GitHub CLI (`gh`) · Conventional Commits |
 | **Languages** | Bash · Python3 |
-| **User Support Scale** | ~70 students per cohort |
+| **User Support Scale** | ~70 students across Foundations & Phase 1 |
 
 ---
 
