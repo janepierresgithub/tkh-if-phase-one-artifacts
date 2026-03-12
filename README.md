@@ -59,18 +59,20 @@ tkh-if-phase-one-artifacts/
 │
 ├── week-01/
 │   ├── scripts/
-│   │   ├── setup_lab_01_george.sh   # Lead instructor's S01 bootstrap (reference)
+│   │   ├── setup_lab_01_george.sh   # S01 class bootstrap (reference copy)
 │   │   ├── setup_lab_01_jane.sh     # Independent S01 implementation (TA)
-│   │   ├── setup_lab_03_jane.sh     # Independent S03 log generator — Python3
-│   │   └── harden.sh                # Night 2 — baseline Linux hardening (CIA annotated)
+│   │   ├── setup_lab_02_jane.sh     # Night 2 — supplemental lab environment
+│   │   ├── setup_lab_03_jane.sh     # Night 3 — supplemental log generator (Python3)
+│   │   └── harden.sh                # Night 2 — hardening script (CIA annotated)
 │   ├── artifacts/
 │   │   ├── discovery.txt            # S01 output — filesystem reconnaissance
 │   │   ├── bash_onliners.sh         # CLI reference — command patterns
 │   │   ├── threat_ips.txt           # S03 output — extracted attacker IPs
 │   │   └── log_interrogation_pipeline.sh  # S03 documented forensic pipeline
 │   └── docs/
-│       ├── comparison_night1.md     # S01 bootstrap analysis
-│       ├── analysis_night3.md       # S03 lab environment analysis
+│       ├── comparison_night1.md     # Night 1 bootstrap analysis
+│       ├── analysis_night2.md       # Night 2 lab environment analysis
+│       ├── analysis_night3.md       # Night 3 lab environment analysis
 │       ├── night1_ta_notes.md       # S01 session notes
 │       ├── NOTES.md                 # Week 01 concept reference
 │       └── NOTES_night2.md          # Night 2 — permissions, chmod, AAA mapping
@@ -122,7 +124,7 @@ The `harden.sh` script annotates each operation with its CIA Triad property and
 NIST NICE framework mapping — making the script self-documenting for anyone who
 needs to run or modify it without external reference.
 
-→ `week-01/scripts/harden.sh` · `week-01/docs/NOTES_night2.md`
+→ `week-01/scripts/harden.sh` · `week-01/scripts/setup_lab_02_jane.sh` · `week-01/docs/analysis_night2.md`
 
 ---
 
