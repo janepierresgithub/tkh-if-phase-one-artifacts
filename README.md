@@ -28,6 +28,7 @@ system or writing a runbook for a team.
 **Cohort Size:** ~70 students across Foundations & Phase 1
 **Schedule:** Monday / Tuesday / Wednesday · 5:30–8:30 PM EST
 **Start Date:** March 9, 2026
+**End Date:** August 27, 2026
 
 ---
 
@@ -105,7 +106,7 @@ tkh-if-phase-one-artifacts/
 ### Night 1 · Terminal Genesis
 VM orientation, headless Linux, FHS navigation, CLI fundamentals, and Git/GitHub
 setup across 70 student environments. The TA bootstrap script (`setup_lab_01_jane.sh`)
-was built independently before accessing instructor materials — it mirrors FHS
+was built independently as an additional practice lab for students — it mirrors FHS
 production directory conventions and includes a five-point environment verification
 suite to catch provisioning failures before they surface as student blockers.
 
@@ -215,4 +216,4 @@ systems. *Proceedings of the IEEE, 63*(9), 1278–1308.
 
 ---
 
-**Built with intention · Updated weekly · TKH IF 2026**
+**Built intentionally · Current Status: Updated weekly · TKH IF 2026**
