@@ -8,7 +8,7 @@
 
 ## Pre-Class Dry Run Results
 
-Ran the official bootstrap script via curl before class:
+Ran the session bootstrap script via curl before class:
 ```bash
 curl -s https://gist.github.com/grobbins-cell/126d5c64f5f071ae950cc18c09b391fa | bash
 ```
@@ -24,9 +24,10 @@ ls -la ~/maze | head -20
 cat ~/maze/level_42/flag.txt
 ```
 
-Result: 100 levels built, flag confirmed in `level_42`. Script is production ready.
+Result: 100 levels built, flag confirmed in `level_42`. Environment ready for class.
 
 ---
+
 ## Student Experience Walkthrough
 
 Completed the lab as a student would, using only Night 1 commands:
@@ -42,43 +43,28 @@ cat level_42/flag.txt        # Read the flag
 Flag contents:
 `MISSION ACCOMPLISHED: +10 XP. You have learned to see in the dark.`
 
-Created and pushed `discovery.txt` to student practice repo per assignment instructions.
+Two realistic student navigation paths:
 
----
-## Gap Identified — Student Navigation Instructions
-
-**Observation:** The lab currently does not tell students *how* to find the flag
-inside the maze. With 100 levels, a pure beginner using only `cd` and `ls` would
-need to check each folder manually — a tedious and discouraging experience for a
-first night.
-
-**Two realistic student paths:**
-
-### Path 1 — Brute Force (Beginner)
+**Path 1 — Manual navigation**
 ```bash
-cd level_1
-ls
-cd ..
-cd level_2
-ls
-cd ..
-# ...repeated up to 100 times
+cd level_1 && ls && cd ..
+cd level_2 && ls && cd ..
+# repeated across levels
 ```
-Builds muscle memory but risks frustration and disengagement on Night 1.
+Builds foundational `cd` and `ls` muscle memory through repetition.
 
-### Path 2 — Smart Search (Recommended)
+**Path 2 — Search command**
 ```bash
 find ~/maze -name "*.txt"
 ```
-Returns the exact path instantly. Introduces the `find` command organically
-and rewards students who explore beyond the minimum command set.
+Returns the exact path instantly. Demonstrates the power of `find` for students
+who explore beyond the minimum command set — a natural reward for curiosity.
 
-**Recommendation for George:** Consider adding a hint in the lab instructions
-that nudges students toward `find` after they've attempted manual navigation
-for a few levels. This preserves the struggle while preventing full frustration.
+Created and pushed `discovery.txt` to student practice repo per assignment instructions.
 
 ---
-## TA Observations & Recommendations
+
+## TA Observations — Live Support Notes
 
 - **Password invisibility warning is critical.** Adult learners panic when they
   type their sudo password and see nothing. Reinforce this before the bootstrap
@@ -90,9 +76,10 @@ for a few levels. This preserves the struggle while preventing full frustration.
 - **`cd ~` is the universal reset.** Remind students early and often. If lost,
   type `cd ~` and start over. No harm done.
 
-- **George's maze is pedagogically strong.** The gamified structure and level_42
-  Easter egg are effective for first-night engagement. The gap identified above
-  is minor and easily addressed with one line of additional instruction.
+- **The gamified maze structure is highly effective for first-night engagement.**
+  The level_42 Easter egg rewards students familiar with hacker culture while
+  remaining invisible to those who aren't — a clean design choice that serves
+  both audiences simultaneously.
 
 ---
 
@@ -100,10 +87,10 @@ for a few levels. This preserves the struggle while preventing full frustration.
 
 | Script | Location | Purpose |
 |---|---|---|
-| `setup_lab_01_george.sh` | `week-01/scripts/` | Official student-facing bootstrap |
-| `setup_lab_01_jane.sh` | `week-01/scripts/` | TA reference implementation |
+| `setup_lab_01_george.sh` | `week-01/scripts/` | Session bootstrap — used live in class |
+| `setup_lab_01_jane.sh` | `week-01/scripts/` | TA supplemental implementation |
 | `comparison_night1.md` | `week-01/docs/` | Side-by-side analysis |
 
 ---
 
-*These notes are for TA reference only and are not shared with students.*
+*These notes are for TA reference and portfolio documentation.*
