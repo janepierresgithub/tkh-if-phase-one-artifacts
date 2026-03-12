@@ -94,9 +94,9 @@ tkh-if-phase-one-artifacts/
 
 | Week | Dates | Theme | Status |
 |---|---|---|---|
-| Week 01 | Mar 10–12 | Linux CLI · Permissions · Stream Editing · Git | ✅ Complete |
-| Week 02 | Mar 17–19 | Access Control · Cryptography · Network Fundamentals | ⬜ Upcoming |
-| Week 03 | Mar 24–26 | Advanced Automation · Bash Scripting · Cron | ⬜ Upcoming |
+| Week 01 | Mar 9–11 | Linux CLI · Permissions · Stream Editing · Git | ✅ Complete |
+| Week 02 | Mar 16–18 | Access Control · Cryptography · Network Fundamentals | ⬜ Upcoming |
+| Week 03 | Mar 23–25 | Advanced Automation · Bash Scripting · Cron | ⬜ Upcoming |
 
 ---
 
