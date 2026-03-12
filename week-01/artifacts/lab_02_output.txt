@@ -1,0 +1,38 @@
+
+============================================
+  TKH Lab Environment Setup — Session 02
+  The Access Control Matrix
+============================================
+
+[*] Building SecureVault environment...
+[+] SecureVault created with 3 files
+[+] Permissions intentionally misconfigured — breach is live
+[!] BREACH: SecureVault is world-readable and world-writable
+
+[!] BREACH: ~/.ssh permissions too open (755 — should be 700)
+
+[*] Current permission state (the breach):
+
+total 20
+drwxrwxrwx  2 jane jane 4096 Mar 12 03:24 .
+drwxr-x--- 17 jane jane 4096 Mar 12 03:24 ..
+-rwxrwxrwx  1 jane jane  148 Mar 12 03:24 config.txt
+-rwxrwxrwx  1 jane jane  308 Mar 12 03:24 ops.log
+-rw-rw-r--  1 jane jane  136 Mar 12 03:24 README.txt
+
+drwxr-xr-x   2 jane jane   4096 Mar  9 02:51 .ssh
+
+============================================
+  Environment ready. Breaches are live.
+
+  Your mission:
+  1. Identify the permission violations above
+  2. Apply correct permissions using chmod
+  3. Verify your fixes with ls -la
+  4. Write harden.sh to automate the fix
+  5. Push harden.sh to your GitHub repo
+
+  Hint: What chmod value locks a directory
+  so only the owner can enter it?
+============================================
+
