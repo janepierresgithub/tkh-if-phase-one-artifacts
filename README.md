@@ -69,9 +69,11 @@ tkh-if-phase-one-artifacts/
 │   │   ├── discovery.txt            # S01 output — filesystem reconnaissance
 │   │   ├── bash_onliners.sh         # CLI reference — command patterns
 │   │   ├── threat_ips.txt           # S03 output — extracted attacker IPs
+│   │   └── final_threat_report.txt  # TLAB-01 — Operation Clean Sweep output
 │   │   └── log_interrogation_pipeline.sh  # S03 documented forensic pipeline
 │   └── docs/
 │       ├── comparison_night1.md     # Night 1 bootstrap analysis
+│       ├── analysis_tlab01.md       # TLAB-01 — Operation Clean Sweep analysis
 │       ├── analysis_night2.md       # Night 2 lab environment analysis
 │       ├── analysis_night3.md       # Night 3 lab environment analysis
 │       ├── night1_ta_notes.md       # S01 session notes
