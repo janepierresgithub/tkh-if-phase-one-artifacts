@@ -96,7 +96,7 @@ tkh-if-phase-one-artifacts/
 | Week | Dates | Theme | Status |
 |---|---|---|---|
 | Week 01 | Mar 9–11 | Linux CLI · Permissions · Stream Editing · Git | ✅ Complete |
-| Week 02 | Mar 16–18 | Access Control · Cryptography · Network Fundamentals | ⬜ Upcoming |
+| Week 02 | Mar 16–18 | Networking · Subnetting · Protocol Interrogation | 🔄 Active |
 | Week 03 | Mar 23–25 | Advanced Automation · Bash Scripting · Cron | ⬜ Upcoming |
 
 ---
@@ -126,6 +126,11 @@ NIST NICE framework mapping — making the script self-documenting for anyone wh
 needs to run or modify it without external reference.
 
 → `week-01/scripts/harden.sh` · `week-01/scripts/setup_lab_02_jane.sh` · `week-01/docs/analysis_night2.md`
+
+**Lab Bootstrap (Class Script)**
+```bash
+curl -sL https://gist.githubusercontent.com/grobbins-cell/8dea0f5a0c65b29efe0b91dd3afa6842/raw/698804520709884999cba0c54411303bff3ae6aa/setup_lab_02.sh | bash
+```
 
 ---
 
