@@ -90,6 +90,7 @@ tkh-if-phase-one-artifacts/
 │   │   ├── protocol_audit.txt       # S06 — port & protocol interrogation
 │   │   └── tlab_report.txt          # TLAB-02 — Operation Blackout
 │   └── docs/
+│       ├── analysis_tlab02.md       # TLAB-02 — Operation Blackout analysis
 │       └── NOTES.md                 # Week 02 concept reference
 │
 ├── week-03/
