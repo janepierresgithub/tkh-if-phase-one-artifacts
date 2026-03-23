@@ -1,0 +1,8 @@
+
+default via 10.0.2.2 dev enp0s3 
+10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15 
+
+=== TCP 3-Way Handshake Evidence ===
+18:02:49.233758 IP 10.0.2.15.43092 > 192.168.1.1.53: Flags [S], seq 3039620880, win 64240, options [mss 1460,sackOK,TS val 634644854 ecr 0,nop,wscale 7,tfo  cookiereq,nop,nop], length 0
+18:02:49.238589 IP 192.168.1.1.53 > 10.0.2.15.43092: Flags [S.], seq 286144001, ack 3039620881, win 65535, options [mss 1460], length 0
+18:02:49.238644 IP 10.0.2.15.43092 > 192.168.1.1.53: Flags [.], ack 1, win 64240, length 0
