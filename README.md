@@ -73,6 +73,8 @@ tkh-if-phase-one-artifacts/
 │   │   └── log_interrogation_pipeline.sh  # S03 documented forensic pipeline
 │   └── docs/
 │       ├── comparison_night1.md     # Night 1 bootstrap analysis
+│       ├── comparison_night2.md     # Night 2 bootstrap comparison
+│       ├── comparison_night3.md     # Night 3 bootstrap comparison
 │       ├── analysis_tlab01.md       # TLAB-01 — Operation Clean Sweep analysis
 │       ├── analysis_night2.md       # Night 2 lab environment analysis
 │       ├── analysis_night3.md       # Night 3 lab environment analysis
@@ -81,12 +83,23 @@ tkh-if-phase-one-artifacts/
 │       └── NOTES_night2.md          # Night 2 — permissions, chmod, AAA mapping
 │
 ├── week-02/
+│   ├── scripts/                     # Session bootstrap scripts
+│   ├── artifacts/
+│   │   ├── network_audit.txt        # S04 — interface & gateway restoration
+│   │   ├── subnet_blueprint.txt     # S05 — subnetting calculations
+│   │   ├── protocol_audit.txt       # S06 — port & protocol interrogation
+│   │   └── tlab_report.txt          # TLAB-02 — Operation Blackout
 │   └── docs/
-│       └── NOTES.md                 # Upcoming — access control & cryptography
+│       └── NOTES.md                 # Week 02 concept reference
 │
 ├── week-03/
+│   ├── scripts/
+│   │   ├── port_scanner.py          # S07 — TCP port scanner
+│   │   ├── brute_detector.py        # S08 — auth log brute force detector
+│   │   └── process_auditor.py       # S09 — process introspection tool
+│   ├── artifacts/                   # Lab outputs — coming Mar 23–25
 │   └── docs/
-│       └── NOTES.md                 # Upcoming — advanced stream editing
+│       └── NOTES.md                 # Week 03 concept reference
 │
 └── README.md
 ```
@@ -98,8 +111,8 @@ tkh-if-phase-one-artifacts/
 | Week | Dates | Theme | Status |
 |---|---|---|---|
 | Week 01 | Mar 9–11 | Linux CLI · Permissions · Stream Editing · Git | ✅ Complete |
-| Week 02 | Mar 16–18 | Networking · Subnetting · Protocol Interrogation | 🔄 Active |
-| Week 03 | Mar 23–25 | Advanced Automation · Bash Scripting · Cron | ⬜ Upcoming |
+| Week 02 | Mar 16–18 | Networking · Subnetting · Protocol Interrogation | ✅ Complete |
+| Week 03 | Mar 23–25 | Python Scripting · Port Scanner · Brute Force Detector · Process Auditor | 🔄 Active |
 
 ---
 
@@ -203,6 +216,97 @@ applied here at the file system level.
   - `fix:` — corrections to existing content
   - `docs:` — documentation updates
   - `sec:` — security-related changes
+
+---
+
+---
+
+## Week 02 — Networking · Subnetting · Protocol Interrogation
+
+### Night 1 · Network Recon (S04)
+Interface restoration and gateway diagnostics on a deliberately broken network
+environment. Students restored a downed network interface, verified gateway
+connectivity, and documented the full interface state. Key infrastructure
+constraint: TKH office network uses MAC address whitelisting — VM internet
+access blocked on-site. Lab designed offline-first as a result.
+
+→ `week-02/artifacts/network_audit.txt`
+```bash
+ip addr show
+ip link set eth0 up
+ip route show
+ping -c 4 10.0.2.2
+```
+
+---
+
+### Night 2 · The Subnetting Crucible (S05)
+Binary math, CIDR notation, network IDs, broadcast addresses, and usable host
+ranges. Students calculated subnet parameters by hand before verifying with
+`ipcalc`. The group chat analogy — a subnet as a boundary that determines who
+can message whom directly — was the conceptual anchor for the session.
+
+→ `week-02/artifacts/subnet_blueprint.txt`
+```bash
+ipcalc 10.50.50.1/26
+# Network:   10.50.50.0
+# Broadcast: 10.50.50.63
+# Hosts:     62
+```
+
+---
+
+### Night 3 · Protocol Interrogation (S06)
+DNS poisoning, hidden services, and ports that should not be open. Students
+used `ss`, `dig`, and `curl` to interrogate the protocol stack and identify
+anomalies. Lab artifact captures the full port and protocol state of the VM
+at the time of the audit.
+
+→ `week-02/artifacts/protocol_audit.txt`
+```bash
+ss -tuln
+dig google.com
+curl -I localhost:8080
+cat /etc/hosts
+```
+
+---
+
+## Week 03 — Python Scripting · Active
+
+### Night 1 · Port Scanner (S07)
+No Nmap. Students write a TCP port scanner from scratch using Python sockets —
+building the same capability from first principles before using the tool that
+automates it.
+
+→ `week-03/scripts/port_scanner.py`
+```bash
+python3 port_scanner.py --target 10.0.2.2 --range 1-1024
+```
+
+---
+
+### Night 2 · Brute Force Detector (S08)
+Parse `/var/log/auth.log`. Count failed login attempts per IP. Flag anything
+above threshold. Students build a detector for the attack pattern they will
+later learn to execute.
+
+→ `week-03/scripts/brute_detector.py`
+```bash
+python3 brute_detector.py --log /var/log/auth.log --threshold 5
+```
+
+---
+
+### Night 3 · Process Auditor (S09)
+Enumerate every running process on the system. Flag unexpected ports, unknown
+owners, and processes that should not be present. Introspection as a security
+primitive.
+
+→ `week-03/scripts/process_auditor.py`
+```bash
+python3 process_auditor.py
+```
 
 ---
 
