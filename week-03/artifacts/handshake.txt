@@ -1,0 +1,38 @@
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on enp0s3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+18:02:49.243883 IP 10.0.2.15.50568 > 76.223.54.146.80: Flags [S], seq 686642245, win 64240, options [mss 1460,sackOK,TS val 1874896586 ecr 0,nop,wscale 7], length 0
+18:02:49.272678 IP 76.223.54.146.80 > 10.0.2.15.50568: Flags [S.], seq 286208001, ack 686642246, win 65535, options [mss 1460], length 0
+18:02:49.272802 IP 10.0.2.15.50568 > 76.223.54.146.80: Flags [.], ack 1, win 64240, length 0
+18:02:49.274613 IP 10.0.2.15.50568 > 76.223.54.146.80: Flags [P.], seq 1:84, ack 1, win 64240, length 83: HTTP: GET / HTTP/1.1
+18:02:49.275652 IP 76.223.54.146.80 > 10.0.2.15.50568: Flags [.], ack 84, win 65535, length 0
+18:02:49.299290 IP 76.223.54.146.80 > 10.0.2.15.50568: Flags [P.], seq 1:217, ack 84, win 65535, length 216: HTTP: HTTP/1.1 200 OK
+18:02:49.299325 IP 10.0.2.15.50568 > 76.223.54.146.80: Flags [.], ack 217, win 64024, length 0
+18:02:49.300130 IP 10.0.2.15.50568 > 76.223.54.146.80: Flags [F.], seq 84, ack 217, win 64024, length 0
+18:02:49.300411 IP 76.223.54.146.80 > 10.0.2.15.50568: Flags [.], ack 85, win 65535, length 0
+18:02:49.316145 IP 76.223.54.146.80 > 10.0.2.15.50568: Flags [F.], seq 217, ack 85, win 65535, length 0
+18:02:49.316167 IP 10.0.2.15.50568 > 76.223.54.146.80: Flags [.], ack 218, win 64024, length 0
+
+11 packets captured
+12 packets received by filter
+0 packets dropped by kernel
+ength 100
+18:02:49.174028 IP 10.0.2.15.22 > 10.0.2.2.51313: Flags [.], ack 501, win 65535, length 0
+18:02:49.176491 IP 10.0.2.15.22 > 10.0.2.2.51313: Flags [P.], seq 408:516, ack 501, win 65535, length 108
+18:02:49.176682 IP 10.0.2.2.51313 > 10.0.2.15.22: Flags [.], ack 516, win 65535, length 0
+18:02:49.177279 IP 10.0.2.15.22 > 10.0.2.2.51313: Flags [P.], seq 516:632, ack 501, win 65535, length 116
+18:02:49.177462 IP 10.0.2.2.51313 > 10.0.2.15.22: Flags [.], ack 632, win 65535, length 0
+18:02:49.178822 IP 10.0.2.2.51313 > 10.0.2.15.22: Flags [P.], seq 501:593, ack 632, win 65535, length 92
+18:02:49.180811 IP 10.0.2.15.22 > 10.0.2.2.51313: Flags [P.], seq 632:756, ack 593, win 65535, length 124
+18:02:49.182118 IP 10.0.2.2.51313 > 10.0.2.15.22: Flags [P.], seq 593:685, ack 756, win 65535, length 92
+18:02:49.184261 IP 10.0.2.15.22 > 10.0.2.2.51313: Flags [P.], seq 756:880, ack 685, win 65535, length 124
+18:02:49.186793 IP 10.0.2.2.51313 > 10.0.2.15.22: Flags [.], ack 880, win 65535, length 0
+18:02:49.233758 IP 10.0.2.15.43092 > 192.168.1.1.53: Flags [S], seq 3039620880, win 64240, options [mss 1460,sackOK,TS val 634644854 ecr 0,nop,wscale 7,tfo  cookiereq,nop,nop], length 0
+18:02:49.238589 IP 192.168.1.1.53 > 10.0.2.15.43092: Flags [S.], seq 286144001, ack 3039620881, win 65535, options [mss 1460], length 0
+18:02:49.238644 IP 10.0.2.15.43092 > 192.168.1.1.53: Flags [.], ack 1, win 64240, length 0
+18:02:49.239764 IP 10.0.2.15.43092 > 192.168.1.1.53: Flags [P.], seq 1:41, ack 1, win 64240, length 40 58447+ AAAA? secure.titancorp.com. (38)
+18:02:49.240292 IP 192.168.1.1.53 > 10.0.2.15.43092: Flags [.], ack 41, win 65535, length 0
+18:02:49.242325 IP 192.168.1.1.53 > 10.0.2.15.43092: Flags [P.], seq 1:41, ack 41, win 65535, length 40 58447 0/0/0 (38)
+18:02:49.242369 IP 10.0.2.15.43092 > 192.168.1.1.53: Flags [.], ack 41, win 64200, length 0
+30 packets captured
+40 packets received by filter
+0 packets dropped by kernel
