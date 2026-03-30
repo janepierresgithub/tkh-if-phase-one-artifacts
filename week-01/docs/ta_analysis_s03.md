@@ -1,4 +1,4 @@
-# Night 3 Bootstrap Script Comparison
+# TA Analysis — Session 03: Stream Editing & Automation
 ## TKH Innovation Fellowship — Phase 1, Week 1, Session 03
 **Date:** March 11, 2026
 **Author:** Jane G. Pierre, Teaching Assistant

@@ -1,4 +1,4 @@
-# Night 2 Bootstrap Script Comparison
+# TA Analysis — Session 02: The Access Control Matrix
 ## TKH Innovation Fellowship — Phase 1, Week 1, Session 02
 **Date:** March 10, 2026
 **Author:** Jane G. Pierre, Teaching Assistant

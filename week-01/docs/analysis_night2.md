@@ -1,4 +1,4 @@
-# Session 02 — Lab Environment Analysis
+# TA Session Notes — Session 02: The Access Control Matrix
 ## TKH Innovation Fellowship · Phase 1 · Week 1 · Night 2
 **Date:** March 10, 2026
 **Author:** Jane G. Pierre, Teaching Assistant

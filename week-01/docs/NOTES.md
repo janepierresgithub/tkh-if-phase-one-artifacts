@@ -17,11 +17,11 @@ This document captures what was taught, why it matters professionally, and the c
 
 ## The Three Bootstrap Scripts
 
-### Script 1 — `setup_lab_01.sh` (Her TA Prep Version)
+### Script 1 — `setup_lab_01.sh` (Jane G. Pierre — TA Reference Implementation)
 **Author:** Jane G. Pierre (TA) | **Gist:** janepierresgithub  
 **Purpose:** TA dry run and environment validation before Night 1
 
-This script was written independently to verify the lab environment prior to class. It builds the same scavenger hunt maze as Lead Instructor's official version but uses different directory and file names.
+This script was written independently to verify the lab environment prior to class. It builds the same scavenger hunt maze as George Robbins's official version but uses different directory and file names.
 
 **What it builds:**
 ```bash
@@ -31,14 +31,14 @@ This script was written independently to verify the lab environment prior to cla
 /var/log/syslog                 # System log (touch)
 ```
 
-**Key difference from official version:** Hidden folder is `.mission_cache` vs `.blackout`. Same skill taught — the names differ. Students who ran Lead Instructor's script look for `.blackout`.
+**Key difference from official version:** Hidden folder is `.mission_cache` vs `.blackout`. Same skill taught — the names differ. Students who ran George Robbins's script look for `.blackout`.
 
 **Cybersecurity concept:** Hidden files and directories (dot-prefix) are commonly used in Linux for configuration files and caches. Understanding how to reveal them with `ls -a` is foundational enumeration skill — used in both system administration and penetration testing.
 
 ---
 
-### Script 2 — `setup_lab_01.sh` (Lead Instructor's Official Night 1)
-**Author:** Lead Instructor | **Gist:** [lead-instructor-gist]  
+### Script 2 — `setup_lab_01.sh` (George Robbins's Official Night 1)
+**Author:** George Robbins | **Gist:** grobbins-cell  
 **Purpose:** Official student Night 1 deployment — The Scavenger Hunt
 
 This is the script students ran in class. It builds a more complete mission scenario with a retrievable token and secret message that students copy into their `discovery.txt` artifact.
@@ -67,8 +67,8 @@ Token Secret: [TOKEN number]
 
 ---
 
-### Script 3 — `setup_lab_02.sh` (Lead Instructor's Official Night 2)
-**Author:** Lead Instructor | **Gist:** [lead-instructor-gist]  
+### Script 3 — `setup_lab_02.sh` (George Robbins's Official Night 2)
+**Author:** George Robbins | **Gist:** grobbins-cell  
 **Purpose:** Official student Night 2 deployment — The Access Control Matrix
 
 This script is architecturally different from the Night 1 scripts. Instead of hiding things for students to find, it **intentionally misconfigures the system** to simulate a real security incident. Students must diagnose and remediate.
@@ -84,7 +84,7 @@ This script is architecturally different from the Night 1 scripts. Instead of hi
 
 **Execution command:**
 ```bash
-curl -sL https://gist.githubusercontent.com/[lead-instructor-gist]/8dea0f5a0c65b29efe0b91dd3afa6842/raw/698804520709884999cba0c54411303bff3ae6aa/setup_lab_02.sh | bash
+curl -sL https://gist.githubusercontent.com/grobbins-cell/8dea0f5a0c65b29efe0b91dd3afa6842/raw/698804520709884999cba0c54411303bff3ae6aa/setup_lab_02.sh | bash
 ```
 
 **Cybersecurity concept:** This lab models a real **security incident response** workflow. The `/etc/shadow` misconfiguration is not theoretical — world-readable password hashes are a critical finding in real penetration tests and security audits.
@@ -146,7 +146,7 @@ Writing `harden.sh` is not just a classroom exercise. In production environments
 
 ## TA Lessons Learned
 
-- Lead Instructor's Night 1 script uses `.blackout` as the hidden directory — not `.mission_cache`. Confirm which script students ran before reviewing their `discovery.txt` paths.
+- George Robbins's Night 1 script uses `.blackout` as the hidden directory — not `.mission_cache`. Confirm which script students ran before reviewing their `discovery.txt` paths.
 - The directory execute bit is the highest-friction concept this week. Plant the seed in the opening analogy before the lab — students who hear it twice retain it.
 - `sudo` is required for `/etc/shadow` operations. Students who forget will get `Operation not permitted`. Redirect to their own understanding: *"What command acts as the master key?"*
 - `chmod +x` before `./harden.sh` — scripts are created as text files. Students frequently hit Permission Denied on their own script.

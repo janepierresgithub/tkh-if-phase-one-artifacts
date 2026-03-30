@@ -89,7 +89,7 @@ Created and pushed `discovery.txt` to student practice repo per assignment instr
 |---|---|---|
 | `setup_lab_01_george.sh` | `week-01/scripts/` | Session bootstrap — used live in class |
 | `setup_lab_01_jane.sh` | `week-01/scripts/` | TA supplemental implementation |
-| `comparison_night1.md` | `week-01/docs/` | Side-by-side analysis |
+| `ta_analysis_s01.md` | `week-01/docs/` | Side-by-side analysis |
 
 ---
 
