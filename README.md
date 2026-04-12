@@ -10,10 +10,15 @@
 This repository documents the technical work produced during Phase 1 of the TKH Innovation Fellowship Cybersecurity program, maintained in the role of Teaching Assistant — a position that in practice functioned as embedded IT support, systems administration, and technical infrastructure for a cohort of approximately 59 students.
 
 **Program:** TKH Innovation Fellowship · [The Knowledge House](https://theknowledgehouse.org)
+
 **Phase:** 1 — Cybersecurity Foundations
-**Cohort Size:** ~59 students · Class of 2026
+
+**Cohort Size:** ~58 students · Class of 2026
+
 **Schedule:** Monday / Tuesday / Wednesday · 5:30–8:30 PM EST
+
 **Start Date:** March 9, 2026
+
 **End Date:** August 27, 2026
 
 ---
@@ -42,9 +47,9 @@ tkh-if-phase-one-artifacts/
 │   ├── artifacts/
 │   │   ├── discovery.txt
 │   │   ├── bash_onliners.sh
-│   │   ├── threat_ips.txt
-│   │   ├── final_threat_report.txt
 │   │   └── log_interrogation_pipeline.sh
+│   ├── tlab01/
+│   │   └── final_threat_report.txt
 │   └── docs/
 │       ├── ta_analysis_s01.md
 │       ├── ta_analysis_s02.md
@@ -55,7 +60,8 @@ tkh-if-phase-one-artifacts/
 │   ├── artifacts/
 │   │   ├── network_audit.txt
 │   │   ├── subnet_blueprint.txt
-│   │   ├── protocol_audit.txt
+│   │   └── protocol_audit.txt
+│   ├── tlab02/
 │   │   └── tlab_report.txt
 │   └── docs/
 │       └── analysis_tlab02.md
@@ -65,7 +71,7 @@ tkh-if-phase-one-artifacts/
 │   │   ├── brute_detector.py
 │   │   ├── brute_report.txt
 │   │   ├── system_auditor.py
-│   │   ├── incident_response.py
+│   │   ├── system_auditor.py
 │   │   ├── security_alert.json
 │   │   └── handshake.txt
 │   ├── tlab03/
@@ -73,11 +79,13 @@ tkh-if-phase-one-artifacts/
 │   └── docs/
 │       └── NOTES.md
 ├── week-04/
-│   ├── sandbox_report.txt
-│   ├── deploy_web.sh
-│   ├── docker-compose.yml
-│   ├── docker-compose-tlab4.yml
-│   ├── hyperstack_audit.json
+│   ├── artifacts/
+│   │   ├── sandbox_report.txt
+│   │   ├── deploy_web.sh
+│   │   └── docker-compose.yml
+│   ├── tlab04/
+│   │   ├── docker-compose-tlab4.yml
+│   │   └── hyperstack_audit.json
 │   └── NOTES.md
 └── README.md
 ```
