@@ -99,7 +99,7 @@ tkh-if-phase-one-artifacts/
 | Week 01 | Mar 9-11 | Linux CLI · Permissions · Stream Editing · Git | ✅ Complete |
 | Week 02 | Mar 16-18 | Networking · Subnetting · Protocol Interrogation | ✅ Complete |
 | Week 03 | Mar 23-25 | Python Scripting · Port Scanner · Brute Force Detector · Process Auditor | ✅ Complete |
-| Week 04 | Mar 30-Apr 1 | Virtualization · Docker · Container Security · Network Segmentation | ✅ Complete |
+| Week 04 | Mar 30-Apr 1  | Virtualization · Docker · Container Security · Network Segmentation | ✅ Complete |
 | Week 05 | Apr 6-8 | Identity · Active Directory · Windows Server Core |  ✅ Complete  |
 | Week 06 | Apr 13-15 | Forge Capstone · Hybrid Architecture · Secure Deployment | ⏳ Upcoming |
 ---
@@ -184,7 +184,7 @@ See week-04/NOTES.md for full concept reference covering virtualization, contain
 | Version Control | Git · GitHub CLI |
 | Languages | Bash · Python3 |
 | Containers | Docker · Docker Compose |
-| User Support Scale | ~59 students · Class of 2026 |
+| User Support Scale | ~58 students · Class of 2026 |
 
 ---
 
