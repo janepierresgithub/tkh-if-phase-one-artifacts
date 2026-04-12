@@ -1,0 +1,10 @@
+==================================================
+SESSION 10: SANDBOX DETONATION REPORT
+Operator: jane
+==================================================
+
+QUESTION 1: Did the ping to google.com succeed or fail in Host-Only mode?
+ANSWER: The ping to google.com succeeded in Host-Only Network mode, returning 4 packets with an average response time of 8.6ms. The air-gap did not fully isolate the VM, likely due to VirtualBox routing traffic through the host machine's internet connection when using Host-only Network mode.
+
+QUESTION 2: Why must a SOC analyst NEVER use "Bridged" mode when detonating unknown malware?
+ANSWER: A SOC analyst must never use Bridged mode when detonating unknown malware because Bridged mode gives the VM its own IP address on the local network, making it a first-class citizen on the same network as every other device. If the malware has network-spreading or worm capabilities, it can escape the VM and infect every other machine on that network — including the analyst's host machine and any other devices on the same Wi-Fi.

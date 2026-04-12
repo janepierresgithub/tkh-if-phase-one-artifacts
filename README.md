@@ -54,7 +54,6 @@ This was not a grading role. The day-to-day technical work included:
 ---
 
 ## Repository Structure
-```
 tkh-if-phase-one-artifacts/
 │
 ├── week-01/
@@ -100,11 +99,19 @@ tkh-if-phase-one-artifacts/
 │   │   ├── incident_response.py     # S09 — threat response script
 │   │   ├── security_alert.json      # S09 — structured JSON alert
 │   │   └── handshake.txt            # S09 — tcpdump capture
+│   ├── tlab03/
+│   │   └── incident_response.py     # TLAB-03 — Operation Automated Hunt
 │   └── docs/
 │       └── NOTES.md                 # Week 03 — Python scripting concept reference
 │
+├── week-04/
+│   ├── sandbox_report.txt           # S10 — VM isolation verification
+│   ├── deploy_web.sh                # S11 — disposable nginx deployment script
+│   ├── docker-compose.yml           # S12 — air-gapped WordPress + MySQL stack
+│   ├── docker-compose-tlab4.yml     # TLAB-04 — three-tier MariaDB stack
+│   └── hyperstack_audit.json        # TLAB-04 — machine-readable audit report
+│
 └── README.md
-```
 
 ---
 
@@ -115,22 +122,22 @@ tkh-if-phase-one-artifacts/
 | Week 01 | Mar 9–11 | Linux CLI · Permissions · Stream Editing · Git | ✅ Complete |
 | Week 02 | Mar 16–18 | Networking · Subnetting · Protocol Interrogation | ✅ Complete |
 | Week 03 | Mar 23–25 | Python Scripting · Port Scanner · Brute Force Detector · Process Auditor | ✅ Complete |
-| Week 04 | Mar 30–Apr 1 | Virtualization · Docker · Container Security | ⏳ Upcoming |
+| Week 04 | Mar 30–Apr 1 | Virtualization · Docker · Container Security · Network Segmentation | ✅ Complete |
+| Week 05 | Apr 6–8 | Identity · Active Directory · Windows Server Core | ⏳ In Progress |
 
 ---
 
-## Week 01 — Three Sessions
+## Week 01 — Linux Foundations & Version Control
 
 ### S01 · Terminal Genesis
 VM orientation, headless Linux, FHS navigation, CLI fundamentals, and Git/GitHub
-setup. The TA bootstrap script (`setup_lab_01_jane.sh`) was built independently
-as an additional practice lab — it mirrors FHS production directory conventions
-and includes a five-point environment verification suite to catch provisioning
-failures before they surface as student blockers.
+setup. The TA bootstrap script was built independently as an additional practice
+lab — it mirrors FHS production directory conventions and includes a five-point
+environment verification suite to catch provisioning failures before they surface
+as student blockers.
 
 → `week-01/scripts/` · `week-01/docs/ta_analysis_s01.md`
 ```bash
-# TA Reference Bootstrap
 curl -s https://gist.githubusercontent.com/janepierresgithub/5c7caec85fc26d272f43df34c8dbe4f3/raw/setup_lab_01.sh | bash
 ```
 
@@ -142,9 +149,12 @@ The `harden.sh` script annotates each operation with its CIA Triad property and
 NIST NICE framework mapping — making the script self-documenting for anyone who
 needs to run or modify it without external reference.
 
-→ `week-01/scripts/harden.sh` · `week-01/scripts/setup_lab_02_jane.sh` · `week-01/docs/ta_analysis_s02.md`
+→ `week-01/scripts/harden.sh` · `week-01/docs/ta_analysis_s02.md`
 ```bash
-curl -sL https://gist.githubusercontent.com/grobbins-cell/8dea0f5a0c65b29efe0b91dd3afa6842/raw/698804520709884999cba0c54411303bff3ae6aa/setup_lab_02.sh | bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+sudo chmod 640 /etc/shadow
+sudo chown root:shadow /etc/shadow
 ```
 
 ---
@@ -153,10 +163,10 @@ curl -sL https://gist.githubusercontent.com/grobbins-cell/8dea0f5a0c65b29efe0b91
 `grep`, `sed`, `awk`, pipeline construction, and log interrogation. Students built
 a forensic pipeline to extract attacker IPs from a simulated Apache access log under
 SQL injection attack. The TA log generator produces 10,000 entries in full Apache
-Combined Log Format with five randomized attacker IPs shuffled throughout — closer
-to production forensic conditions than the class script's simplified format.
+Combined Log Format with five randomized attacker IPs — closer to production
+forensic conditions than the class script's simplified format.
 
-→ `week-01/scripts/setup_lab_03_jane.sh` · `week-01/artifacts/log_interrogation_pipeline.sh` · `week-01/docs/ta_analysis_s03.md`
+→ `week-01/scripts/setup_lab_03_jane.sh` · `week-01/artifacts/log_interrogation_pipeline.sh`
 ```bash
 grep "UNION SELECT" ~/access.log \
     | awk '{print $1}' \
@@ -180,15 +190,12 @@ multi-stage forensic pipeline. Deliverable: `final_threat_report.txt`.
 ### S04 · Operation Broken Link
 Interface restoration and gateway diagnostics on a deliberately broken network
 environment. Students restored a downed network interface, verified gateway
-connectivity, and documented the full interface state. Key infrastructure
-constraint: TKH office network uses MAC address whitelisting — VM internet
-access blocked on-site. Lab designed offline-first as a result.
+connectivity, and documented the full interface state.
 
 → `week-02/artifacts/network_audit.txt`
 ```bash
-ip addr show
 sudo ip link set enp0s3 up
-ip route show
+sudo ip route add default via 10.0.2.2
 ping -c 4 10.0.2.2
 ```
 
@@ -197,30 +204,24 @@ ping -c 4 10.0.2.2
 ### S05 · Operation Grid Lock
 Binary math, CIDR notation, network IDs, broadcast addresses, and usable host
 ranges. Students calculated subnet parameters by hand before verifying with
-`ipcalc`. The group chat analogy — a subnet as a boundary that determines who
-can message whom directly — was the conceptual anchor for the session.
+`ipcalc`.
 
 → `week-02/artifacts/subnet_blueprint.txt`
 ```bash
 ipcalc 10.50.50.1/26
-# Network:   10.50.50.0
-# Broadcast: 10.50.50.63
-# Hosts:     62
+# Network: 10.50.50.0 · Broadcast: 10.50.50.63 · Hosts: 62
 ```
 
 ---
 
 ### S06 · Operation Hidden Door
-DNS poisoning, hidden services, and ports that should not be open. Students
-used `ss`, `dig`, and `curl` to interrogate the protocol stack and identify
-anomalies. Lab artifact captures the full port and protocol state of the VM
-at the time of the audit.
+DNS poisoning, hidden services, and ports that should not be open. Students used
+`ss`, `dig`, and `curl` to interrogate the protocol stack and identify anomalies.
 
 → `week-02/artifacts/protocol_audit.txt`
 ```bash
 ss -tuln
 dig google.com
-curl -I localhost:8080
 cat /etc/hosts
 ```
 
@@ -230,7 +231,6 @@ cat /etc/hosts
 Full synthesized network remediation mission across OSI Layers 3, 4, and 7.
 Restored a sabotaged subnet mask, removed a malicious `/etc/hosts` DNS entry,
 and captured a TCP 3-way handshake as forensic proof of restored connectivity.
-Deliverable: `tlab_report.txt`.
 
 → `week-02/artifacts/tlab_report.txt` · `week-02/docs/analysis_tlab02.md`
 ```bash
@@ -246,7 +246,7 @@ sudo tcpdump -i enp0s3 host 192.168.10.193 -n -c 10
 ### S07 · The Automation Forge — Port Scanner
 No Nmap. Students wrote a TCP port scanner from scratch using Python's `socket`
 module — building the capability from first principles before using tools that
-abstract it away.
+abstract it away. Understanding what Nmap does under the hood before ever running it.
 
 → `week-03/artifacts/port_check.py`
 ```bash
@@ -258,23 +258,112 @@ python3 port_check.py
 ### S08 · The Paper Trail — Brute Force Detector
 Parsed a simulated auth log using Python file I/O. Extracted every failed SSH
 login attempt and wrote findings to a clean report automatically. Mirrors the
-triage workflow a SOC analyst runs after a credential stuffing alert.
+triage workflow a SOC analyst runs after a credential stuffing alert fires.
 
 → `week-03/artifacts/brute_detector.py` · `week-03/artifacts/brute_report.txt`
 ```bash
 python3 brute_detector.py
+# Output: brute_report.txt — 4 attack signatures identified
 ```
 
 ---
 
 ### S09 · The Automation Pivot — Process Auditor & JSON Alerting
 Gave Python the keys to the OS via `subprocess`. Enumerated running processes,
-flagged an unauthorized cryptominer, and exported a structured JSON security
-alert compatible with SIEM ingestion.
+flagged an unauthorized cryptominer, and exported a structured JSON security alert
+compatible with SIEM ingestion.
 
-→ `week-03/artifacts/system_auditor.py` · `week-03/artifacts/incident_response.py` · `week-03/artifacts/security_alert.json`
+→ `week-03/artifacts/system_auditor.py` · `week-03/artifacts/security_alert.json`
 ```bash
 python3 system_auditor.py
+# Output: security_alert.json — severity High · process flagged
+```
+
+---
+
+### TLAB-03 · Operation Automated Hunt
+Automated incident response pipeline built entirely in Python. Used `subprocess`
+to run `grep` programmatically against a simulated auth log, parsed raw output
+line by line to extract attacker IPs, and exported a structured JSON alert ready
+for SIEM ingestion. First full SOAR-style automation pipeline built from scratch.
+
+**Cybersecurity principle:** SOAR — Security Orchestration, Automation and Response.
+The pipeline mirrors what Splunk SOAR and Palo Alto XSOAR do at enterprise scale.
+
+→ `week-03/tlab03/incident_response.py`
+```bash
+python3 incident_response.py
+# Output: threat_report.json
+# Attacker IPs: ['192.168.1.55', '172.16.0.4', '192.168.1.55', '10.0.0.99']
+```
+
+---
+
+## Week 04 — Virtualization · Docker · Container Security
+
+### S10 · Sandbox Detonation
+Configured a Host-Only network adapter in VirtualBox to air-gap the VM from the
+internet before detonating a simulated malware payload. Documented the isolation
+verification process and explained why Bridged mode is never acceptable for malware
+analysis environments. If the sandbox leaks, malware can spread to every device
+on the local network.
+
+→ `week-04/sandbox_report.txt`
+```bash
+ping -c 4 google.com
+# Success state: Network unreachable — sandbox confirmed isolated
+```
+
+---
+
+### S11 · The Disposable Web Server
+Deployed, modified, and destroyed an nginx container using Docker. Demonstrated
+the full container lifecycle — pull, run, exec, modify, log audit, stop, remove —
+and automated the deployment sequence in a reusable bash script. Containers leave
+no footprint once destroyed. That is the security advantage over traditional VMs.
+
+→ `week-04/deploy_web.sh`
+```bash
+docker run -d --name training-web -p 8080:80 nginx
+docker exec -it training-web bash
+docker stop training-web && docker rm training-web
+```
+
+---
+
+### S12 · The Air-Gapped Stack
+Deployed a WordPress + MySQL multi-container stack using Docker Compose with
+explicit network segmentation. WordPress connected to both `frontend` and `backend`
+networks. MySQL isolated to `backend` only with `internal: true` — provably
+air-gapped from the internet. Verified isolation by testing outbound connectivity
+from inside each container.
+
+**Cybersecurity principle:** Defense in Depth — if WordPress is compromised, the
+attacker is trapped. The database has no route out.
+
+→ `week-04/docker-compose.yml`
+```bash
+docker-compose up -d
+docker-compose exec wordpress bash  # curl google.com → 301 response (internet access confirmed)
+docker-compose exec db bash         # curl google.com → timeout (air-gap confirmed)
+```
+
+---
+
+### TLAB-04 · Operation Fortified Node
+Capstone of Week 4. Evicted a rogue `decoy_web` container occupying Port 80,
+built a three-tier WordPress + MariaDB Docker Compose stack from scratch with
+`public_net` and `private_net` segmentation, verified port isolation with nmap,
+tested container-to-VM network isolation, and produced a machine-readable JSON
+audit report documenting all findings with real values — no placeholders.
+
+**Cybersecurity principle:** Security Architecture Verification — it is not enough
+to configure controls. You must prove they work. An untested control is an assumption.
+
+→ `week-04/docker-compose-tlab4.yml` · `week-04/hyperstack_audit.json`
+```bash
+nmap -p 80,3306 localhost
+# Port 80: open · Port 3306: closed — network segmentation verified
 ```
 
 ---
@@ -288,7 +377,8 @@ python3 system_auditor.py
 | **Remote Access** | VS Code Remote-SSH · SSH key authentication |
 | **Version Control** | Git · GitHub CLI (`gh`) · Conventional Commits |
 | **Languages** | Bash · Python3 |
-| **User Support Scale** | ~59 students · Class of 2026 |
+| **Containers** | Docker · Docker Compose |
+| **User Support Scale** | ~58 Fellows · Class of 2026 |
 
 ---
 
@@ -315,6 +405,17 @@ Three tools that together make the terminal a forensic instrument:
 Every `chmod` operation in this repository reduces permissions to the minimum
 required for correct function — formalized by Saltzer and Schroeder (1975) and
 applied here at the file system level.
+
+### Defense in Depth
+No single security control is sufficient. The container network architecture in
+Week 04 layers multiple controls — network segmentation, internal-only routing,
+and port isolation — so that a breach of one layer does not mean a breach of all.
+
+### SOAR — Security Orchestration, Automation and Response
+The Python scripts in Week 03 and TLAB-03 demonstrate the foundational logic of
+SOAR platforms: ingest a log source, apply a detection rule, extract indicators
+of compromise, and export a structured alert. Built by hand first so the
+abstraction layers of enterprise tools make sense.
 
 ---
 
